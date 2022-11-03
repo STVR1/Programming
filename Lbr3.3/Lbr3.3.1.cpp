@@ -1,7 +1,6 @@
 #define _USE_MATH_DEFINES
 #include<iostream>
 #include<cmath>
-#include <iomanip> 
 using namespace std;
 int main() {
 	double a, h = 0.4, y, min= 2 * sin(-M_PI) / pow(1 - (-M_PI), 2), max= 2 * sin(M_PI) / pow(1 - (M_PI),2);
