@@ -32,7 +32,6 @@ int main() {
 			for (i = 0; i <= (n - 1); i++) {
 				for (j = 0; j <= (m - 1); j++) {
 					array1[i][j] = rand() % 201 + (-101);
-
 				}
 			}
 			break;
@@ -123,7 +122,7 @@ void algorithm(int** array1, int i, int j, int n, int m) {
 			cout << "Not a magic matrix\n";
 			break;
 		}
-		if (i == (n - 1) && sum2 == sum1 && asum2 == asum1) {
+		if (i == (n - 1) && sum2 == sum1 && asum2 == asum1 && sum2==asum2) {
 			cout << "This is a magic matrix\n";
 		}
 	}
