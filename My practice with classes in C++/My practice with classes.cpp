@@ -612,6 +612,8 @@ int** task3(Task3 Action3) {
         else {
             if (Action3.n==0 && Action3.m==0) {
                 cout << "Your array isn't created" << endl;
+                 Action3.array = new int*[0];
+                 return Action3.array;
             }
             else {;
                 cout << "Your array before transformation" << endl;
@@ -667,15 +669,22 @@ int main() {
         }
         case 3: { 
             Action3.array = task3(Action3);
-            Action3.n = (_msize(Action3.array) / sizeof(int)) / 2; //I don't return meanings n and m after actions
-            Action3.m = _msize(Action3.array[0]) / sizeof(int);    //with array. As a reason I define them using array
+            if (_msize(Action3.array) != 0) {
+                Action3.n = (_msize(Action3.array) / sizeof(int)) / 2; //I don't return meanings n and m after actions
+                Action3.m = _msize(Action3.array[0]) / sizeof(int);    //with array. As a reason I define them using array
+            }
             break;
         }
         }
     } while (choice_ending("with program") == 1);
-    for (int i = 0; i < (_msize(Action3.array) / sizeof(int)) / 2; i++) {
-        delete[] Action3.array[i];
+    if (_msize(Action3.array) != 0) {
+        for (int i = 0; i < (_msize(Action3.array) / sizeof(int)) / 2; i++) {
+            delete[] Action3.array[i];
+        }
+        delete[] Action3.array;
     }
-    delete[] Action3.array;
+    else {
+        delete[] Action3.array;
+    }
     return 0;
 }
