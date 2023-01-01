@@ -156,6 +156,12 @@ vector<Task1> Task1::reading1() {
                         list1[k+size - 1].size_w = needed;
                         point++, f=1;
                         needed.resize(0);
+                        
+                    }
+                    else if (i == temp.size() - 1 && point == 4) {
+                        list1[k + size - 1].price = needed;
+                        point = 1, f = 1, k++;
+                        needed.resize(0);
                     }
                 }
                 else if (temp[i]!=' ') {
@@ -163,9 +169,9 @@ vector<Task1> Task1::reading1() {
                     needed[f-1] = temp[i];
                     f++;
                     if (i == temp.size() - 1 && point == 4) {
-                        list1[k+size - 1].price = needed;
-                        point = 1, f = 1, k++;
-                        needed.resize(0);
+                    list1[k + size - 1].price = needed;
+                    point = 1, f = 1, k++;
+                    needed.resize(0);
                     }
                 }
             }
@@ -317,6 +323,11 @@ vector<Task2> Task2::reading2() {
                         point++, f = 1;
                         needed.resize(0);
                     }
+                    if (i == temp.size() - 1 && point == 3) {
+                        list2[k + size - 1].age = needed;
+                        point = 1, f = 1, k++;
+                        needed.resize(0);
+                    }
                 }
                 else if (temp[i] != ' ') {
                     needed.resize(f);
@@ -410,7 +421,7 @@ vector<Task2> task2(Task2 Action2) {
 
 class Task3 {
 public:
-    int** array;
+    int** array=new int*[0];
     int n = 0, m = 0;
     int** creating_array();
     int** transforming_array();
@@ -612,7 +623,6 @@ int** task3(Task3 Action3) {
         else {
             if (Action3.n==0 && Action3.m==0) {
                 cout << "Your array isn't created" << endl;
-                 Action3.array = new int*[0];
                  return Action3.array;
             }
             else {;
